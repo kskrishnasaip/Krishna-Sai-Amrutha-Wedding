@@ -507,7 +507,9 @@ footer .br{transform-origin:100% 100%;animation:swayL 8s ease-in-out infinite}
 <script>
 /* always start at the top, even when the browser tries to restore an old scroll position */
 if("scrollRestoration" in history)history.scrollRestoration="manual";
-function startAtTop(){if(!location.hash)window.scrollTo(0,0);}
+/* clear any leftover #section from the address bar, then start at the top */
+if(location.hash){history.replaceState(null,"",location.pathname+location.search);}
+function startAtTop(){window.scrollTo(0,0);}
 window.addEventListener("pageshow",startAtTop);
 startAtTop();
 /* ---- edit these ---- */
