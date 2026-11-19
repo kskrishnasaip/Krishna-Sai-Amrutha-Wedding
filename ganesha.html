@@ -595,6 +595,8 @@ tick();setInterval(tick,1000);
     err.hidden=true;
   });
   function fail(m){err.textContent=m;err.hidden=false;}
+  const sendBtn=form.querySelector('button[type=submit]');
+  const sendLabel=sendBtn.textContent;
   /* Google Form that collects RSVPs (same answers, sent in the background) */
   const FORM_ACTION="https://docs.google.com/forms/d/e/1FAIpQLScdm97WUbd7uQYJzzx1Ihzez_KOjw8YRDfv7reFa8-T_rXadA/formResponse";
   const FORM_EVENT={"Sangeeth":"Sangeeth","Haldi":"Haldi","Pelli":"Pelli Muhurtham"};
@@ -606,7 +608,7 @@ tick();setInterval(tick,1000);
     body.append("entry.1769127136",String(d.adults));
     body.append("entry.1235887094",String(d.kids));
     body.append("entry.918868534",d.food);
-    return fetch(FORM_ACTION,{method:"POST",mode:"no-cors",body}).catch(()=>{});
+    return fetch(FORM_ACTION,{method:"POST",mode:"no-cors",body});
   }
   form.addEventListener("submit",e=>{
     e.preventDefault();
@@ -624,9 +626,16 @@ tick();setInterval(tick,1000);
       data.attend="Yes";data.adults=ad;data.kids=kd;
       data.events=evs.map(x=>FORM_EVENT[x.split(" (")[0]]||x);
     }
-    sendToForm(data);
-    const done=$("r-done");
-    done.textContent=`Thank you, ${name}. Your reply has been sent to the family.`;done.hidden=false;
+    sendBtn.disabled=true;sendBtn.textContent="Sending…";
+    sendToForm(data).then(()=>{
+      sendBtn.textContent="Sent";
+      const done=$("r-done");
+      done.textContent=`Thank you, ${name}. Your reply has been sent to the family.`;done.hidden=false;
+    }).catch(()=>{
+      sendBtn.disabled=false;sendBtn.textContent=sendLabel;
+      fail("We couldn't send your reply. Please check your connection and try again.");
+    });
+    return;
   });
   sync();
 })();
