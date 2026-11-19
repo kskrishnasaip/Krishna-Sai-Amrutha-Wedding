@@ -7,7 +7,7 @@
 <meta name="description" content="Krishna Sai & Amrutha · Sunday, 13 December 2026 · Orlando, FL">
 <title>Krishna Sai &amp; Amrutha Subha Lekha</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&family=Tiro+Telugu&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Tiro+Telugu&display=swap">
 <style>
 /* Layout: one long ivory card — watercolor rose corners frame the opening and closing, a fine gold rule runs between sections, events read like a programme. */
 :root{
@@ -158,8 +158,8 @@ footer .fam{font-family:var(--f-display);letter-spacing:.12em;font-size:.85rem;c
 /* pelli: kumkum red, gold zari, kalasam */
 .pelli{background:linear-gradient(135deg,#7a0d1f,#a3142a 55%,#7a0d1f);color:#fbefd9;box-shadow:inset 0 0 0 5px #a3142a,inset 0 0 0 6px #d9a94a,inset 0 0 0 9px #a3142a,inset 0 0 0 10px rgba(217,169,74,.6),0 12px 30px rgba(122,13,31,.35)}
 .pelli::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 14px,rgba(217,169,74,.08) 14px 15px)}
-.pelli h3{color:#ffe1a1;font-size:1.8rem}.pelli p{color:#fbe6cf}.pelli .tel{color:#f3c98b}.pelli .kicker{color:#f3c98b}
-.pelli .time{font-size:1.5rem;letter-spacing:.04em;color:#ffe1a1;padding-top:0;animation:glow 2.6s ease-in-out infinite}
+.pelli h3{color:#ffe1a1}.pelli p{color:#fbe6cf}.pelli .tel{color:#f3c98b}.pelli .kicker{color:#f3c98b}
+.pelli .time{letter-spacing:.04em;color:#ffe1a1;padding-top:0;animation:glow 2.6s ease-in-out infinite}
 @keyframes glow{50%{text-shadow:0 0 14px rgba(255,214,120,.9)}}
 .pelli .leaves{transform-origin:60px 40px;animation:sway 4s ease-in-out infinite}
 @keyframes sway{50%{transform:rotate(3deg)}}
@@ -255,25 +255,24 @@ body{background-image:radial-gradient(ellipse at 50% 0,rgba(255,255,255,.55),tra
 .count div{border:1px solid var(--gold-soft);border-radius:60px 60px 6px 6px/44px 44px 6px 6px;padding:18px 2px 12px;background:var(--paper-2)}
 
 /* event arches */
-.ev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px;align-items:end}
-.ev{position:relative;overflow:hidden;text-align:center;display:grid;justify-items:center;gap:4px;padding:34px 18px 30px;border-radius:999px 999px 18px 18px/190px 190px 18px 18px}
+.ev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px;align-items:stretch}
+.ev{position:relative;overflow:hidden;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;padding:34px 18px 30px;min-height:440px;box-sizing:border-box;border-radius:999px 999px 18px 18px/190px 190px 18px 18px}
 .ev::after{content:"";position:absolute;inset:9px;border:1px solid currentColor;opacity:.45;border-radius:999px 999px 12px 12px/180px 180px 12px 12px;pointer-events:none}
 .ev>*{position:relative;z-index:1}
 .ev .note-float,.ev .petal-fall{position:absolute;z-index:0}
-.ev-art{width:96px;height:96px;margin-bottom:4px}
+.ev-art{width:104px;height:104px;margin-bottom:4px;flex:none}
 .ev-date{display:grid;justify-items:center;font-family:var(--f-display);line-height:1.1;margin-top:2px}
 .ev-date span{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;opacity:.85}
-.ev-date b{font-weight:400;font-size:3.4rem;line-height:1}
-.ev h3{font-size:1.7rem;margin-top:8px;color:inherit}
+.ev-date b{font-weight:600;font-size:3.6rem;line-height:1}
+.ev h3{font-family:var(--f-display);font-weight:600;font-size:1.6rem;margin-top:8px;color:inherit;letter-spacing:.04em}
 .ev .tel{font-family:var(--f-telugu);font-size:1rem;opacity:.85}
-.ev .kicker{font-family:var(--f-display);letter-spacing:.22em;font-size:.66rem;text-transform:uppercase;margin-top:6px}
-.ev-time{margin-top:12px;font-family:var(--f-display);font-size:1.25rem;letter-spacing:.08em;padding:8px 20px;border-block:1px solid currentColor}
+.ev .kicker{font-family:var(--f-display);font-weight:600;letter-spacing:.22em;font-size:.7rem;text-transform:uppercase;margin-top:6px}
+.ev-time{margin-top:auto;font-family:var(--f-display);font-weight:600;font-size:1.25rem;letter-spacing:.08em;padding:8px 20px;border-block:1px solid currentColor}
 .ev.sangeeth{color:#ffe6a8}.ev.sangeeth .ev-art{color:#ffcf6b}
 .ev.haldi{color:#5a3a06}
-.ev.pelli{color:#ffe1a1;padding-block:44px 38px}
-.ev.pelli .ev-time{font-size:1.6rem;animation:glow 2.6s ease-in-out infinite}
-.ev.pelli .ev-date b{font-size:3.9rem}
-.ev-after{margin:10px 0 0;font-style:italic;font-size:1.05rem;opacity:.95}
+.ev.pelli{color:#ffe1a1}
+.ev.pelli .ev-time{animation:glow 2.6s ease-in-out infinite}
+.ev-after{margin:0;font-family:var(--f-body);font-weight:500;font-style:italic;font-size:1.1rem;opacity:.95}
 @media (max-width:760px){.ev-grid{grid-template-columns:1fr;max-width:340px;margin-inline:auto}}
 
 /* venue */
@@ -428,21 +427,21 @@ footer .br{transform-origin:100% 100%;animation:swayL 8s ease-in-out infinite}
   </div>
   <div class="ev-grid">
     <article class="ev sangeeth">
-      <svg class="ev-art" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4"><ellipse cx="60" cy="68" rx="34" ry="20"/><path d="M26 68v8c0 11 15 20 34 20s34-9 34-20v-8"/><path d="M36 57l8 33M52 49l2 47M68 49l-2 47M84 57l-8 33"/></g><g fill="currentColor"><circle class="n1" cx="92" cy="30" r="5"/><path class="n1" d="M96 30V8l10 4" stroke="currentColor" stroke-width="2.4" fill="none"/><circle class="n2" cx="24" cy="36" r="4"/><path class="n2" d="M27.5 36V18" stroke="currentColor" stroke-width="2.2" fill="none"/></g></svg>
+      <svg class="ev-art" viewBox="0 0 120 120" aria-hidden="true"><g class="n1"><path d="M14 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffe6a8"/><path d="M104 40l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#f7b9d6"/></g><path d="M46 82L94 26" stroke="#b8862e" stroke-width="8" stroke-linecap="round"/><path d="M46 82L94 26" stroke="#ffcf6b" stroke-width="3" stroke-linecap="round"/><path d="M52 74L100 22M56 70L102 26" stroke="#fbe9f2" stroke-width="1" opacity=".8"/><path d="M92 16l9 9-5 5-9-9z" fill="#ffcf6b" stroke="#b8862e" stroke-width="1.5"/><ellipse cx="38" cy="88" rx="22" ry="18" transform="rotate(-42 38 88)" fill="#ffcf6b" stroke="#b8862e" stroke-width="2"/><ellipse cx="38" cy="88" rx="13" ry="10" transform="rotate(-42 38 88)" fill="#fbe9f2" opacity=".35"/><ellipse cx="66" cy="62" rx="12" ry="10" transform="rotate(-42 66 62)" fill="#f7b9d6" stroke="#b8862e" stroke-width="2"/><circle cx="34" cy="86" r="4.5" fill="#b8862e"/><circle cx="46" cy="98" r="3" fill="#b8862e"/><g class="n2"><path d="M96 92V74l10 4" stroke="#ffcf6b" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="92" cy="94" r="5.5" fill="#ffcf6b"/></g><g class="n1"><path d="M22 36V20l9 3" stroke="#ffcf6b" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="18" cy="38" r="4.5" fill="#ffcf6b"/></g></svg>
       <div class="ev-date"><span>Friday</span><b>11</b><span>December</span></div>
       <h3>Sangeeth</h3><span class="tel">సంగీత్</span>
       <div class="ev-time">7:30 PM</div>
       <span class="note-float" aria-hidden="true">♪</span><span class="note-float b" aria-hidden="true">♫</span><span class="note-float c" aria-hidden="true">♪</span>
     </article>
     <article class="ev haldi">
-      <svg class="ev-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M18 62h84c0 22-19 38-42 38S18 84 18 62Z" fill="#c9832a"/><ellipse cx="60" cy="62" rx="42" ry="9" fill="#f2b51f"/><ellipse cx="60" cy="61" rx="30" ry="5" fill="#ffd34d"/><g class="mari"><g fill="#f08a12"><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(0 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(30 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(60 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(90 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(120 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(150 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(180 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(210 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(240 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(270 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(300 86 40)"/><ellipse cx="86" cy="28" rx="6" ry="13" transform="rotate(330 86 40)"/></g><circle cx="86" cy="40" r="7" fill="#c4500c"/></g><g fill="#f6b21b"><circle cx="30" cy="34" r="6"/><circle cx="38" cy="26" r="4"/></g></svg>
+      <svg class="ev-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M18 36Q60 6 102 36" stroke="#2f7a3a" stroke-width="2.4" fill="none"/><g class="mari"><g fill="#f08a12"><circle cx="24" cy="38" r="6.5"/><circle cx="41" cy="26" r="6.5"/><circle cx="60" cy="20" r="6.5"/><circle cx="79" cy="26" r="6.5"/><circle cx="96" cy="38" r="6.5"/></g><g fill="#ffb13b"><circle cx="24" cy="38" r="3"/><circle cx="41" cy="26" r="3"/><circle cx="60" cy="20" r="3"/><circle cx="79" cy="26" r="3"/><circle cx="96" cy="38" r="3"/></g></g><path d="M14 60h92c0 26-21 44-46 44S14 86 14 60Z" fill="#c9832a" stroke="#8a5a10" stroke-width="2"/><path d="M14 60h92" stroke="#8a5a10" stroke-width="2"/><ellipse cx="60" cy="60" rx="46" ry="11" fill="#f2b51f" stroke="#b07a10" stroke-width="1.5"/><path d="M26 56c8-9 24-12 34-8 14 5 24 2 36-5" stroke="#fff0a0" stroke-width="3" fill="none" stroke-linecap="round"/><g fill="#f6b21b"><circle cx="34" cy="50" r="2.6"/><circle cx="52" cy="46" r="2"/><circle cx="82" cy="50" r="2.4"/></g><path d="M10 96l6-6M18 104l8-6M102 96l-6-6M110 104l-8-6" stroke="#f6b21b" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M28 14l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#ffd34d"/><path d="M94 12l1.6 3.4 3.4 1.6-3.4 1.6L94 22l-1.6-3.4-3.4-1.6 3.4-1.6z" fill="#ffd34d"/></svg>
       <div class="ev-date"><span>Saturday</span><b>12</b><span>December</span></div>
       <h3>Haldi</h3><span class="tel">మంగళ స్నానం</span>
       <div class="ev-time">10:00 AM</div>
       <span class="petal-fall" aria-hidden="true"></span><span class="petal-fall b" aria-hidden="true"></span><span class="petal-fall c" aria-hidden="true"></span>
     </article>
     <article class="ev pelli">
-      <svg class="ev-art" viewBox="0 0 120 120" aria-hidden="true"><g class="leaves" fill="#3f7a3a"><path d="M60 40C44 34 30 20 26 6c14 4 28 18 34 34Z"/><path d="M60 40C76 34 90 20 94 6 80 10 66 24 60 40Z"/><path d="M60 40C52 26 50 12 54 0c8 10 10 26 6 40Z"/><path d="M60 40c8-14 10-28 6-40-8 10-10 26-6 40Z"/></g><circle cx="60" cy="40" r="13" fill="#8a5a2b"/><path d="M60 27c-4 0-6 2-6 4h12c0-2-2-4-6-4Z" fill="#c9a26b"/><path d="M40 56h40l-4-6H44Z" fill="#d9a94a"/><path d="M38 58c-12 8-16 22-10 34 6 14 22 22 32 22s26-8 32-22c6-12 2-26-10-34Z" fill="#d9a94a"/><path d="M30 80h60" stroke="#a3142a" stroke-width="4"/><circle cx="60" cy="80" r="6" fill="#a3142a"/><path d="M46 96h28" stroke="#b07d2a" stroke-width="2"/></svg>
+      <svg class="ev-art" viewBox="0 0 120 120" aria-hidden="true"><g class="leaves"><path d="M60 46C42 40 26 24 20 8c18 4 34 20 40 38Z" fill="#2f7a3a"/><path d="M60 46C78 40 94 24 100 8c-18 4-34 20-40 38Z" fill="#2f7a3a"/><path d="M60 46C50 30 48 14 52 2c10 12 12 30 8 44Z" fill="#3f8f45"/><path d="M60 46c10-16 12-32 8-44-10 12-12 30-8 44Z" fill="#3f8f45"/><path d="M20 8c12 6 22 16 30 30" stroke="#1f5a2a" stroke-width="1.4" fill="none"/><path d="M100 8c-12 6-22 16-30 30" stroke="#1f5a2a" stroke-width="1.4" fill="none"/></g><ellipse cx="60" cy="42" rx="17" ry="13" fill="#8a5a2b"/><path d="M46 38c4-7 24-7 28 0" fill="#f6e3a6"/><path d="M48 36c3-4 21-4 24 0" fill="#c9a26b"/><path d="M40 58h40l-4-9H44Z" fill="#c4500c" stroke="#8a2a08" stroke-width="1.2"/><path d="M36 60c-13 8-17 24-10 37 7 13 23 21 34 21s27-8 34-21c7-13 3-29-10-37Z" fill="#d9a94a" stroke="#8a5a10" stroke-width="2"/><path d="M26 74c-4 6-5 14-2 22" stroke="#fff3c4" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M28 84h64" stroke="#a3142a" stroke-width="7"/><circle cx="60" cy="84" r="8" fill="#ffe1a1" stroke="#a3142a" stroke-width="3"/><circle cx="60" cy="84" r="3" fill="#a3142a"/><path d="M38 98h44" stroke="#8a5a10" stroke-width="2"/><path d="M50 104h20" stroke="#8a5a10" stroke-width="2"/><path d="M96 26l1.6 3.4 3.4 1.6-3.4 1.6L96 36l-1.6-3.4-3.4-1.6 3.4-1.6z" fill="#ffe1a1"/><path d="M14 58l1.4 3 3 1.4-3 1.4-1.4 3-1.4-3-3-1.4 3-1.4z" fill="#ffe1a1"/></svg>
       <div class="ev-date"><span>Sunday</span><b>13</b><span>December</span></div>
       <h3>Pelli</h3><span class="tel">పెళ్ళి</span>
       <span class="kicker">Subha Muhurtham</span>
