@@ -596,11 +596,25 @@ tick();setInterval(tick,1000);
     err.hidden=true;
   });
   function fail(m){err.textContent=m;err.hidden=false;}
+  /* Google Form that collects RSVPs (same answers, sent in the background) */
+  const FORM_ACTION="https://docs.google.com/forms/d/e/1FAIpQLScdm97WUbd7uQYJzzx1Ihzez_KOjw8YRDfv7reFa8-T_rXadA/formResponse";
+  const FORM_EVENT={"Sangeeth":"Sangeeth","Haldi":"Haldi","Pelli":"Pelli Muhurtham"};
+  function sendToForm(d){
+    const body=new URLSearchParams();
+    body.append("entry.905652419",d.name);
+    body.append("entry.349007539",d.attend);
+    d.events.forEach(x=>body.append("entry.875552737",x));
+    body.append("entry.1769127136",String(d.adults));
+    body.append("entry.1235887094",String(d.kids));
+    body.append("entry.918868534",d.food);
+    return fetch(FORM_ACTION,{method:"POST",mode:"no-cors",body}).catch(()=>{});
+  }
   form.addEventListener("submit",e=>{
     e.preventDefault();
     const name=$("r-name").value.trim();
     if(!name){$("r-name").focus();return;}
     let msg;
+    const data={name,attend:"No",events:[],adults:0,kids:0,food:$("r-food-veg").checked?"Vegetarian":"Non-veg"};
     if($("r-yes").checked){
       const evs=[...form.querySelectorAll('input[name="ev"]:checked')].map(i=>i.value);
       if(!evs.length){
@@ -610,6 +624,8 @@ tick();setInterval(tick,1000);
       const ad=num("r-adults"),kd=num("r-kids"),total=ad+kd;
       if(ad+kd<1)return fail("Please include at least one guest.");
       const food=$("r-food-veg").checked?`All vegetarian (${total})`:`All non-vegetarian (${total})`;
+      data.attend="Yes";data.adults=ad;data.kids=kd;
+      data.events=evs.map(x=>FORM_EVENT[x.split(" (")[0]]||x);
       msg=[`Namaste! This is ${name}.`,`We will joyfully attend Krishna Sai & Amrutha's wedding.`,``,
         `Events:`,...evs.map(x=>`• ${x}`),``,
         `Family: ${ad} ${ad===1?"adult":"adults"}${kd?`, ${kd} ${kd===1?"child":"children"}`:""} (${total} total)`,
@@ -617,6 +633,7 @@ tick();setInterval(tick,1000);
     }else{
       msg=`Namaste! This is ${name}. Sorry, we can't make it, but our blessings are with Krishna Sai & Amrutha.`;
     }
+    sendToForm(data);
     const a=document.createElement("a");a.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
     a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
     const done=$("r-done");
