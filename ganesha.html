@@ -462,7 +462,7 @@ footer .br{transform-origin:100% 100%;animation:swayL 8s ease-in-out infinite}
   <div class="lotus" aria-hidden="true"><svg viewBox="0 0 120 40"><path d="M0 26h38M82 26h38" stroke="currentColor" stroke-width="1"/><g fill="none" stroke="currentColor" stroke-width="1.3"><path d="M60 6c7 8 7 18 0 26-7-8-7-18 0-26Z"/><path d="M60 32c-4-9-12-14-20-14 2 9 10 14 20 14Z"/><path d="M60 32c4-9 12-14 20-14-2 9-10 14-20 14Z"/><path d="M44 32h32"/></g><circle cx="40" cy="26" r="1.8" fill="currentColor"/><circle cx="80" cy="26" r="1.8" fill="currentColor"/></svg></div>
   <p class="eyebrow">We would love to know</p>
   <h2 style="font-size:clamp(1.8rem,6vw,2.4rem);margin-top:8px">RSVP</h2>
-  <p class="note">Your reply opens in WhatsApp, ready to send.</p>
+  <p class="note">Your reply goes straight to the family.</p>
   <form id="rsvp-form">
     <label class="f" for="r-name">Your name
       <input type="text" id="r-name" required autocomplete="name">
@@ -500,7 +500,7 @@ footer .br{transform-origin:100% 100%;animation:swayL 8s ease-in-out infinite}
       </fieldset>
     </div>
     <p id="r-err" class="err" role="alert" hidden></p>
-    <button class="btn" type="submit">Send reply on WhatsApp</button>
+    <button class="btn" type="submit">Send reply</button>
     <p id="r-done" class="done" hidden></p>
   </form>
 </section>
@@ -530,7 +530,6 @@ window.addEventListener("pageshow",startAtTop);
 startAtTop();
 /* ---- edit these ---- */
 const WEDDING = new Date("2026-12-13T08:49:00-05:00");
-const WHATSAPP_NUMBER = "14086418425"; // country code + number, no "+"
 
 const pad=n=>String(n).padStart(2,"0");
 function tick(){
