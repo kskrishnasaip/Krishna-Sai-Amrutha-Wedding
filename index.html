@@ -613,7 +613,6 @@ tick();setInterval(tick,1000);
     e.preventDefault();
     const name=$("r-name").value.trim();
     if(!name){$("r-name").focus();return;}
-    let msg;
     const data={name,attend:"No",events:[],adults:0,kids:0,food:$("r-food-veg").checked?"Vegetarian":"Non-veg"};
     if($("r-yes").checked){
       const evs=[...form.querySelectorAll('input[name="ev"]:checked')].map(i=>i.value);
@@ -623,21 +622,12 @@ tick();setInterval(tick,1000);
         form.querySelector('input[name="ev"]').focus({preventScroll:true});return;}
       const ad=num("r-adults"),kd=num("r-kids"),total=ad+kd;
       if(ad+kd<1)return fail("Please include at least one guest.");
-      const food=$("r-food-veg").checked?`All vegetarian (${total})`:`All non-vegetarian (${total})`;
       data.attend="Yes";data.adults=ad;data.kids=kd;
       data.events=evs.map(x=>FORM_EVENT[x.split(" (")[0]]||x);
-      msg=[`Namaste! This is ${name}.`,`We will joyfully attend Krishna Sai & Amrutha's wedding.`,``,
-        `Events:`,...evs.map(x=>`• ${x}`),``,
-        `Family: ${ad} ${ad===1?"adult":"adults"}${kd?`, ${kd} ${kd===1?"child":"children"}`:""} (${total} total)`,
-        `Food: ${food}`].join("\n");
-    }else{
-      msg=`Namaste! This is ${name}. Sorry, we can't make it, but our blessings are with Krishna Sai & Amrutha.`;
     }
     sendToForm(data);
-    const a=document.createElement("a");a.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-    a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
     const done=$("r-done");
-    done.textContent=`Thank you, ${name}. If WhatsApp didn't open, please message the family directly.`;done.hidden=false;
+    done.textContent=`Thank you, ${name}. Your reply has been sent to the family.`;done.hidden=false;
   });
   sync();
 })();
